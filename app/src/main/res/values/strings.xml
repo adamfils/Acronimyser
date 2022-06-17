@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Acronimyser</string>
+    <string name="frequency">Frequency:</string>
+    <string name="since">Since:</string>
+    <string name="enter_acronym">Enter Acronym e.g NASA</string>
+    <string name="no_results_found">No Results Found</string>
+    <string name="error_icon">Error Icon</string>
+</resources>
