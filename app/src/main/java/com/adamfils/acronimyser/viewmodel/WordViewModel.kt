@@ -33,6 +33,10 @@ class WordViewModel(context: Context) : ViewModel() {
     }
 
     fun searchWord(context: Context, word: String) {
+        if (word.isEmpty()) {
+            error.value = WordErrorType.NO_RESULTS
+            return
+        }
         wordList.value?.clear()
         viewModelScope.launch {
             val list = context.searchWord(word, error, cacheQuery)

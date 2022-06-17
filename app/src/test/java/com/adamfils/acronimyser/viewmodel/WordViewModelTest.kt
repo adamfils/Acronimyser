@@ -3,6 +3,7 @@ package com.adamfils.acronimyser.viewmodel
 import android.os.Looper
 import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.adamfils.acronimyser.model.WordErrorType
 import io.mockk.mockk
 import io.mockk.mockkConstructor
 import kotlinx.coroutines.Dispatchers
@@ -45,4 +46,12 @@ class WordViewModelTest {
         }
     }
 
+    @Test
+    fun `test error if word is empty`() = runBlocking {
+        val viewModel = WordViewModel(mockk(relaxed = true))
+        viewModel.searchWord(mockk(relaxed = true), "")
+        viewModel.getError().observeForever {
+            assertEquals(WordErrorType.NO_RESULTS, it)
+        }
+    }
 }
